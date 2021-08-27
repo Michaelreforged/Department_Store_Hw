@@ -12,10 +12,11 @@ const Store = (props) =>{
           <div key={item.id}>
           <p>{item.name}</p>
           <a href = {`/stores/${store.id}/items/${item.id}`}>Show Item</a>
-          {/* <a href = {`/stores/${store.id}/items/${items.id}/edit`}>Edit Item</a> */}
+          <a href = {`/stores/${store.id}/items/${item.id}/edit`}>Edit Item</a>
           <a href = {`/stores/${store.id}/items/${item.id}`} data-method="delete">Delete Item</a>
           </div>
       )})}
+          <a href = {`/stores/${store.id}/items/new`}>Add New Item</a>
       </div> 
   )
 }

@@ -11,7 +11,7 @@ const EditStore = (props) =>{
         <input defaultValue={store.name} name="store[name]"></input>
         <button type="submit">Submit</button> 
       </form>
-      {/* <a href = {`/stores/`}>Back</a> */}
+      <a href = {`/stores/`}>Back</a>
     </div> 
   )
 }

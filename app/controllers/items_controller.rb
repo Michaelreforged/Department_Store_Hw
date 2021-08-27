@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    render component: "Newitem", props:{store:@store}
+    render component: "NewItem", props:{store:@store}
   end
 
   def show
@@ -15,15 +15,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    render component: "EditItem", props:{store: @store, item: @item}
+  end
 
+  def create
+    @item = @store.items.new(item_params)
+    if(@item.save)
+      redirect_to store_items_path
+    else
+    end
   end
 
   def update
 
-  end
-
-  def update
-
+    if @item.update(item_params)
+      redirect_to store_items_path
+    else
+      
+    end
   end
 
   def destroy
@@ -32,6 +41,9 @@ class ItemsController < ApplicationController
   end
 
   private
+  def item_params
+    params.require(:item).permit(:name)
+  end
   def set_store
     @store = Store.find(params[:store_id])
   end

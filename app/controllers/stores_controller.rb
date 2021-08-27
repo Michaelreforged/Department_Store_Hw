@@ -10,15 +10,15 @@ class StoresController < ApplicationController
   end
 
   def show
-    render component: "Store", props: {store: @store, item: @store.items}  
+    render component:"Store", props: {store: @store, item: @store.items}  
   end
 
   def new
-    render component: "NewStore"
+    render component:"NewStore"
   end
 
   def edit
-    render component: "EditStore", props: {store: @store}
+    render component:"EditStore", props: {store: @store}
   end
 
   def create
@@ -26,7 +26,6 @@ class StoresController < ApplicationController
     if(@store.save)
       redirect_to stores_path
     else
-      render :new
     end
   end
 
@@ -35,7 +34,7 @@ class StoresController < ApplicationController
     if @store.update(store_params)
       redirect_to stores_path
     else
-      edit
+      
     end
 
   end
