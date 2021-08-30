@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
   def create
     @item = @store.items.new(item_params)
     if(@item.save)
-      # redirect_to store_items_path
-      redirect_to "/stores/#{@store.id}"
+      redirect_to store_items_path
+      # redirect_to "/stores/#{@store.id}"
     else
     end
   end

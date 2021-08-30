@@ -37,7 +37,12 @@ d4i2 = d4.items.create(name:"EVGA RTX 3080", price:"810.00")
 d5i1 = d5.items.create(name:"Nerf Dart Guns", price: "25.00")
 d5i2 = d5.items.create(name:"Bikes", price:"150.00")
 
+d1i1c1 = d1i1.comments.create(body:"good CDs")
+d1i1c1 = d1i1.comments.create(body:"bad CDs")
+
 puts "seeded #{Store.all.size} Stores"
 puts "first Store name: #{Store.first.name}"
 puts "seeded #{Item.all.size} Items"
 puts "first item name: #{Store.first.items.first.name}"
+puts "seeded #{Comment.all.size} Comments"
+puts "first item name: #{Store.first.items.first.comments.first.body}"
