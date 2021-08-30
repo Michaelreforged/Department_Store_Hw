@@ -9,12 +9,14 @@ const Items = (props) =>{
         return(
           <div key={item.id}>
           <p>{item.name}</p>
+          <a>Price: ${item.price}</a>
           <a href={`/stores/${store.id}/items/${item.id}`}> Items</a>
           <a href={`/stores/${store.id}/items/${item.id}/edit`}>Edit item</a>
           <a href={`/stores/${store.id}/items/${item.id}`} data-method="destroy">Delete item</a>
           </div>
       )})}
           <a href = {`/stores/${store.id}/items/new`}>Add New Item</a>
+          <a href = {`/stores/${store.id}`}>Back to Departments</a>
 
     </div> 
   )

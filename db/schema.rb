@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_203830) do
+ActiveRecord::Schema.define(version: 2021_08_30_041718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_comments_on_item_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.bigint "store_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
@@ -29,5 +38,6 @@ ActiveRecord::Schema.define(version: 2021_08_25_203830) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "items"
   add_foreign_key "items", "stores"
 end

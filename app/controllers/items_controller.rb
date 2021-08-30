@@ -21,7 +21,8 @@ class ItemsController < ApplicationController
   def create
     @item = @store.items.new(item_params)
     if(@item.save)
-      redirect_to store_items_path
+      # redirect_to store_items_path
+      redirect_to "/stores/#{@store.id}"
     else
     end
   end
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
 
     if @item.update(item_params)
       redirect_to store_items_path
+      # redirect_to "/stores/#{@store.id}"
     else
       
     end
@@ -37,12 +39,13 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to store_path(@store.id)
+    redirect_to store_items_path
+    # redirect_to "/stores/#{@store.id}"
   end
 
   private
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name,:price)
   end
   def set_store
     @store = Store.find(params[:store_id])

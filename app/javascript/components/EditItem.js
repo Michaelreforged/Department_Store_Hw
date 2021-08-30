@@ -9,9 +9,11 @@ const EditItem = (props) =>{
       <form action={`/stores/${store.id}/items/${item.id}`} method ="post">
         <input type="hidden" name="_method" value="patch"/>
         <input defaultValue={item.name} name="item[name]"></input>
+        <input defaultValue={item.price} name="item[price]"></input>
         <button type="submit">Submit</button> 
       </form>
-      {/* <a href = {`/stores/`}>Back</a> */}
+      <a href = {`/stores/${store.id}/items`}>Back {store.name}</a>
+      <a href = {`/stores/`}>Back Departments</a>
     </div> 
   )
 }
